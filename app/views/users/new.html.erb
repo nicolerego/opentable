@@ -1,0 +1,40 @@
+<h1>Sign up!</h1>
+
+<%= form_for @user do |f| %>
+<% if @user.errors.any? %>
+		<div id="error_explanation">
+			<h3>
+				Whoops!
+				<%= pluralize(@user.errors.count, "error")%>
+				prohibited you from signing up:
+			</h3>
+			<ul>
+				<% @user.errors.full_messages.each do |message|%>
+				<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+<div class="field">
+	<%= f.label :name %></br>
+	<%= f.text_field :name %></br></br>
+</div>
+<div class="field">
+	<%= f.label :email %></br>
+	<%= f.text_field :email %></br></br>
+</div>
+<div class="field">
+	<%= f.label :password %></br>
+	<%= f.password_field :password %></br></br>
+</div>
+<div class="field">
+	<%= f.label :password_confirmation %></br>
+	<%= f.password_field :password_confirmation %></br></br>
+</div>
+<div class="actions">
+	<%= f.submit %>
+</div>
+
+
+<% end %>
+
