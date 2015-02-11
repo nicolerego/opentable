@@ -1,0 +1,20 @@
+<h1>Open Table!</h1>
+
+<%= link_to "Add a New Restaurant",  new_restaurant_url %>
+
+<h3>All Restaurants</h3>
+<ul>
+	<% @restaurants.each do |restaurant| %>
+		<li>
+			<%= link_to restaurant.name, restaurant_path(restaurant) %></br>
+			<%= restaurant.location %> </br>
+			<%= restaurant.phone_number %> </br>
+			<%= restaurant.open_hours %> </br>
+			<%= restaurant.description %> </br>
+			<%= restaurant.menu %> </br>
+			<%= restaurant.price_range %> </br>
+			<%= restaurant.capacity %> </br>
+			<%= restaurant.picture %> </br>
+		</li>
+	<% end %>
+</ul>
