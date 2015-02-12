@@ -44,7 +44,8 @@ group :development, :test do
 
   gem 'quiet_assets'
   gem 'better_errors'
-
+  # formats clearer error messages
   gem 'pry-rails' 
+
 end
 
