@@ -7,6 +7,7 @@
 	<% @restaurants.each do |restaurant| %>
 		<li>
 			<%= link_to restaurant.name, restaurant_path(restaurant) %></br>
+			<%= image_tag restaurant.picture %> </br>
 			<%= restaurant.location %> </br>
 			<%= restaurant.phone_number %> </br>
 			<%= restaurant.open_hours %> </br>
@@ -14,7 +15,7 @@
 			<%= restaurant.menu %> </br>
 			<%= restaurant.price_range %> </br>
 			<%= restaurant.capacity %> </br>
-			<%= restaurant.picture %> </br>
+			
 		</li>
 	<% end %>
 </ul>
