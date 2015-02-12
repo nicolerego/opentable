@@ -31,6 +31,11 @@
 	<%= f.label :password_confirmation %></br>
 	<%= f.password_field :password_confirmation %></br></br>
 </div>
+<div class="field">
+	<%= f.label :user_group %></br>
+	<%= f.radio_button :user_group, 'owner' %> Owner</br>
+	<%= f.radio_button :user_group, 'diner' %> Diner </br>
+</div>
 <div class="actions">
 	<%= f.submit %>
 </div>

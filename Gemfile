@@ -47,8 +47,8 @@ group :development, :test do
   # formats clearer error messages
   gem 'pry-rails' 
 
-   gem 'rspec-rails'
-   gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 
 end
 

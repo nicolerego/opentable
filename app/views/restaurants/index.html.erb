@@ -1,6 +1,8 @@
 <h1>Seat Yourself!</h1>
 
-<%= link_to "Add a New Restaurant",  new_restaurant_url %>
+<% if is_owner? %>
+	<%= link_to "Add a New Restaurant",  new_restaurant_url %>
+<% end %>
 
 <h3>All Restaurants</h3>
 <ul>
