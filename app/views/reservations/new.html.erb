@@ -21,7 +21,10 @@
 	</div>
 	<div id="field">
 		<%= f.label :time %>
-		<%= f.time_field :time %>
+		<%= f.select :time do %>
+			 <%= options_for_select([[@restaurant.open_time], [@restaurant.close_time]])  %>
+			 <% end %>
+		<%= f.select :time, Restaurant.all.collect { |t| [t.open_time..t.close_time] } %>
 	</div>
 	<div id="field">
 		<%= f.label :party_size %>
