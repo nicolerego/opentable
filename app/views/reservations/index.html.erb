@@ -1,0 +1,14 @@
+<h1>All Your Reservations:</h1>
+<%= link_to "Back to All Restaurants", restaurants_url %> </br></br>
+
+<ul>
+	<% @reservations.each do |reservation| %>
+		<li>
+			Restaurant: <%= reservation.restaurant_id %> </br>
+			Time:  <%= reservation.time.strftime("%I:%M %p") %></br>
+			Date:  <%= reservation.date.strftime("%A, %b %d") %></br>
+			Party Size: <%= reservation.party_size %></br>
+			</br>
+		</li>
+	<% end %>
+</ul>

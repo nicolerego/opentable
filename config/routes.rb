@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root 'restaurants#index'
+
+  get '/reservations/' => 'reservations#index'
   
   resources :restaurants do 
     resources :reservations, only: [:show, :create, :new, :destroy]
