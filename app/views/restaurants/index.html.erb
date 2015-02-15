@@ -10,14 +10,22 @@
 		<li>
 			<%= link_to restaurant.name, restaurant_path(restaurant) %></br>
 			<%= image_tag restaurant.picture %> </br>
-			<%= restaurant.location %> </br>
-			<%= restaurant.phone_number %> </br>
-			<%= restaurant.open_time %> <%= restaurant.close_time %> </br></br>
-			<%= restaurant.description %> </br>
-			<%= restaurant.menu %> </br>
-			<%= restaurant.price_range %> </br>
-			<%= restaurant.capacity %> </br>
-			
+				Location: <%= restaurant.location %> </br>
+				Phone Number: <%= restaurant.phone_number %> </br>
+				Hours: <%= restaurant.open_time %> - 
+					<% if restaurant.close_time >= 12 %>
+						<%= (restaurant.close_time - 12) %>
+					<% else %>
+						<%= restaurant.close_time %> 
+					<% end %>
+				 </br>
+				Description: <%= restaurant.description %> </br>
+				Menu: <%= restaurant.menu %> </br>
+				Price Range: $<%= restaurant.price_range %> </br>
+				<% if is_owner? %>
+					Capacity: <%= restaurant.capacity %> </br>
+				<% end %>
+			</br>
 		</li>
 	<% end %>
 </ul>

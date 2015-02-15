@@ -2,14 +2,22 @@
 
 <h3><%= @restaurant.name %></h3>
 <p>
-	<%= @restaurant.location %> </br>
-	<%= @restaurant.phone_number %> </br>
-	<%= @restaurant.open_time %> - <%= @restaurant.close_time %> </br>
-	<%= @restaurant.description %> </br>
-	<%= @restaurant.menu %> </br>
-	<%= @restaurant.price_range %> </br>
-	<%= @restaurant.capacity %> </br>
-	<%= image_tag @restaurant.picture %> </br>
+	<%= image_tag @restaurant.picture %> </br></br>
+	Location: <%= @restaurant.location %> </br>
+	Phone Number: <%= @restaurant.phone_number %> </br>
+	Hours: <%= @restaurant.open_time %> - 
+		<% if @restaurant.close_time >= 12 %>
+			<%= (@restaurant.close_time - 12) %>
+		<% else %>
+			<%= @restaurant.close_time %> 
+		<% end %>
+	</br>
+	Description: <%= @restaurant.description %> </br>
+	Menu: <%= @restaurant.menu %> </br>
+	Price Range: $<%= @restaurant.price_range %> </br>
+	<% if is_owner? %>
+	Capacity: <%= @restaurant.capacity %> </br>
+	<% end %>
 </p>
 
 <%= link_to "Make a Reservation", new_restaurant_reservation_path(@restaurant) %>
