@@ -6,6 +6,8 @@ class Reservation < ActiveRecord::Base
 
 	# validate :availability
 
+	scope :newest_first, -> { order(date: :ASC) }
+
 	# private
 	# def availability
 	# 	if !restaurant.available?(party_size, party_time)

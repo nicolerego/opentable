@@ -2,7 +2,7 @@
 <%= link_to "Back to All Restaurants", restaurants_url %> </br></br>
 
 <ul>
-	<% @reservations.each do |reservation| %>
+	<% @reservations.newest_first.each do |reservation| %>
 		<% if current_user != nil %>
 			<% if reservation.user_id == current_user.id %>
 				<li>

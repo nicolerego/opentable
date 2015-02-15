@@ -7,7 +7,8 @@ class ReservationsController < ApplicationController
 	end 
 
 	def show
-		@reservation = Reservation.find(params[:id])
+		# @reservation = Reservation.find(params[:id])
+		@reservation.newest_first = Reservation.find(params[:id])
 	end 
 
 	def new
