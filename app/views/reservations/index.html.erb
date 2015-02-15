@@ -3,12 +3,20 @@
 
 <ul>
 	<% @reservations.each do |reservation| %>
-		<li>
-			Restaurant: <%= reservation.restaurant_id %> </br>
-			Time:  <%= reservation.time.strftime("%I:%M %p") %></br>
-			Date:  <%= reservation.date.strftime("%A, %b %d") %></br>
-			Party Size: <%= reservation.party_size %></br>
-			</br>
-		</li>
+		<% if current_user != nil %>
+			<% if reservation.user_id == current_user.id %>
+				<li>
+					Restaurant: <%= reservation.restaurant_id %> </br>
+					Time:  <%= reservation.time.strftime("%I:%M %p") %></br>
+					Date:  <%= reservation.date.strftime("%A, %b %d") %></br>
+					Party Size: <%= reservation.party_size %></br>
+					</br>
+					(LINK to edit | LINK to delete)
+					Can't get these links to work yet.. but the edit/and delete functionality is completed 
+					</br></br>
+				</li>
+			<% end %>
+		<% end %>
 	<% end %>
 </ul>
+
