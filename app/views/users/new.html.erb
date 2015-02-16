@@ -15,6 +15,7 @@
 			</ul>
 		</div>
 	<% end %>
+	<p>Please fill in the details below.</p>
 <div class="field">
 	<%= f.label :name %></br>
 	<%= f.text_field :name %></br></br>
@@ -32,12 +33,12 @@
 	<%= f.password_field :password_confirmation %></br></br>
 </div>
 <div class="field">
-	<%= f.label :user_group %></br>
+	<%= f.label :user_group, "Register as a Diner and you’re on your way to reserving your next dinning experience. Register as an Owner if you’d like to list your restuarant and keep track of reservations!" %></br>
 	<%= f.radio_button :user_group, 'owner' %> Owner</br>
 	<%= f.radio_button :user_group, 'diner' %> Diner </br>
 </div>
 <div class="actions">
-	<%= f.submit %>
+	<%= f.submit "Sign me up!" %>
 </div>
 
 
