@@ -1,6 +1,5 @@
 <%= render "/shared/header" %>
-
+<section class="reservationForm">
 <h1>Make a Reservation for: <%= @restaurant.name %> </h1>
-<%= link_to "Back to All Restaurants", restaurants_url %> </br></br>
-
 <%= render "form" %>
+</section>

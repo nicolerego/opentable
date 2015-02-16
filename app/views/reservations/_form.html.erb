@@ -14,18 +14,18 @@
 		</div>
 	<% end %>
 	<div id="field">
-		<%= f.label :date %>
+		<%= f.label :date %></br>
 		<%= f.date_field :date %></br></br>
 	</div>
 	<div id="field">
-		<%= f.label :time %>
+		<%= f.label :time %></br>
 		<%= f.select(:time, reservation_time_select(@restaurant)) %></br></br>
 	</div>
 	<div id="field">
-		<%= f.label :party_size %>
+		<%= f.label :party_size %></br>
 		<%= f.number_field :party_size %></br></br>
 	</div>
 	<div id="actions">
-		<%= f.submit %>
+		<%= f.submit class: "button" %>
 	</div>
 <% end %>

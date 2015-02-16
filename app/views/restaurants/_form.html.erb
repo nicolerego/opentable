@@ -14,47 +14,46 @@
 		</div>
 	<% end %>
 	<div class="field">
-		<%= f.label :name %></br>
+		<%= f.label :name %>
 		<%= f.text_field :name %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :location %></br>
+		<%= f.label :location %>
 		<%= f.text_field :location %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :phone_number %></br>
+		<%= f.label :phone_number %>
 		<%= f.text_field :phone_number %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :open_time %></br>
-		
+		<%= f.label :open_time %>
 		<%= f.select(:open_time, restaurant_time_select) %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :close_time %></br>
+		<%= f.label :close_time %>
 		<%= f.select(:close_time, restaurant_time_select) %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :description %></br>
+		<%= f.label :description %>
 		<%= f.text_field :description %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :menu %></br>
+		<%= f.label :menu %>
 		<%= f.text_field :menu %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :price_range %></br>
+		<%= f.label :price_range %>
 		<%= f.text_field :price_range %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :capacity %></br>
+		<%= f.label :capacity %>
 		<%= f.text_field :capacity %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :picture %></br>
+		<%= f.label :picture %>
 		<%= f.text_field :picture %></br></br>
 	</div>
 	<div class="actions">
-		<%= f.submit "Save Restaurant" %>
+		<%= f.submit "Save Restaurant", class: "button"%>
 	</div>
 <% end %>

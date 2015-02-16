@@ -1,46 +1,44 @@
-<h1>Sign up!</h1>
-
-<%= form_for @user do |f| %>
-<% if @user.errors.any? %>
-		<div id="error_explanation">
-			<h3>
-				Whoops!
-				<%= pluralize(@user.errors.count, "error")%>
-				prohibited you from signing up:
-			</h3>
-			<ul>
-				<% @user.errors.full_messages.each do |message|%>
-				<li><%= message %></li>
-				<% end %>
-			</ul>
+<%= render '/shared/header' %>
+<section class="signup">
+	<%= form_for @user do |f| %>
+		<% if @user.errors.any? %>
+			<div id="error_explanation">
+				<h3>
+					Whoops!
+					<%= pluralize(@user.errors.count, "error")%>
+					prohibited you from signing up:
+				</h3>
+				<ul>
+					<% @user.errors.full_messages.each do |message|%>
+						<li><%= message %></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		<p>To Sign Up please fill in the details below.</p>
+		<div class="field">
+			<%= f.label :name %></br>
+			<%= f.text_field :name %></br></br>
+		</div>
+		<div class="field">
+			<%= f.label :email %></br>
+			<%= f.text_field :email %></br></br>
+		</div>
+		<div class="field">
+			<%= f.label :password %></br>
+			<%= f.password_field :password %></br></br>
+		</div>
+		<div class="field">
+			<%= f.label :password_confirmation %></br>
+			<%= f.password_field :password_confirmation %></br></br>
+		</div>
+		<div class="description">
+			<%= f.label :user_group, "Register as a Diner and you’re on your way to reserving your next dinning experience. Register as an Owner if you’d like to list your restuarant and keep track of reservations!" %></br></br>
+			<%= f.radio_button :user_group, 'owner' %> OWNER
+			<%= f.radio_button :user_group, 'diner' %> DINER </br>
+		</div>
+		<div class="actions">
+			</br><%= f.submit "Sign me up!", class: "button" %>
 		</div>
 	<% end %>
-	<p>Please fill in the details below.</p>
-<div class="field">
-	<%= f.label :name %></br>
-	<%= f.text_field :name %></br></br>
-</div>
-<div class="field">
-	<%= f.label :email %></br>
-	<%= f.text_field :email %></br></br>
-</div>
-<div class="field">
-	<%= f.label :password %></br>
-	<%= f.password_field :password %></br></br>
-</div>
-<div class="field">
-	<%= f.label :password_confirmation %></br>
-	<%= f.password_field :password_confirmation %></br></br>
-</div>
-<div class="field">
-	<%= f.label :user_group, "Register as a Diner and you’re on your way to reserving your next dinning experience. Register as an Owner if you’d like to list your restuarant and keep track of reservations!" %></br>
-	<%= f.radio_button :user_group, 'owner' %> Owner</br>
-	<%= f.radio_button :user_group, 'diner' %> Diner </br>
-</div>
-<div class="actions">
-	<%= f.submit "Sign me up!" %>
-</div>
-
-
-<% end %>
-
+</section>
