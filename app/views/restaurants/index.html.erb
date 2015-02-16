@@ -8,7 +8,6 @@
 			<%= image_tag restaurant.picture %> 
 			<h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
 				Location: <%= restaurant.location %> </br>
-				
 				Hours: <%= restaurant.open_time %> - 
 					<% if restaurant.close_time >= 12 %>
 						<%= (restaurant.close_time - 12) %>
@@ -18,9 +17,7 @@
 				 </br>
 				<!-- Description: <%= restaurant.description %> </br> -->
 				Price Range: $<%= restaurant.price_range %> </br>
-				<% if is_owner? %>
-					Capacity: <%= restaurant.capacity %> </br>
-				<% end %>
+				<i>Cuisine Type</i>
 			</br>
 		</li>
 	<% end %>
