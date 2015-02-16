@@ -1,18 +1,15 @@
-<h1>All Your Reservations:</h1>
-<%= link_to "Back to All Restaurants", restaurants_url %> </br></br>
+<%= render "/shared/header" %>
+<h3>All Your Reservations:</h3>
 
 <ul>
 	<% @reservations.newest_first.each do |reservation| %>
 		<% if current_user != nil %>
 			<% if reservation.user_id == current_user.id %>
 				<li>
-					Restaurant: <%= reservation.restaurant_id %> </br>
-					Time:  <%= reservation.time.strftime("%I:%M %p") %></br>
-					Date:  <%= reservation.date.strftime("%A, %b %d") %></br>
-					Party Size: <%= reservation.party_size %></br>
-					</br>
-					(LINK to edit | LINK to delete)
-					Can't get these links to work yet.. but the edit/and delete functionality is completed 
+					You have a reservation at <%= reservation.restaurant.name %> on <%= reservation.date.strftime("%A, %b %d") %> at <%= reservation.time.strftime("%I:%M %p") %>. Party size of <%= reservation.party_size %>.
+				</br></br>
+					
+					<%= link_to "View", "/"%> | Can't get these links to work yet.. but the edit/and delete functionality is completed 
 					</br></br>
 				</li>
 			<% end %>

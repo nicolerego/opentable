@@ -23,6 +23,7 @@ class ReservationsController < ApplicationController
 		@reservation = @restaurant.reservations.build(reservation_params)
 		@reservation.user = current_user
 
+
 		if @reservation.save
 			# redirect_to restaurant_reservation_url(@restaurant, @reservation), notice: 'Reservation made!'
 			redirect_to reservations_url, notice: 'Reservation made!'

@@ -1,22 +1,14 @@
-<h1>Seat Yourself!</h1>
+<%= render "/shared/header" %>
 
-<% if is_owner? %>
-	<%= link_to "Add a New Restaurant",  new_restaurant_url %> | 
-<% end %>
-<% if current_user %>
-
-<%= link_to "See Your Current Dining Reservations",  reservations_url %>
-
-<% end %>
-
+<section class="index">
 <h3>All Restaurants</h3>
 <ul>
 	<% @restaurants.each do |restaurant| %>
 		<li>
-			<%= link_to restaurant.name, restaurant_path(restaurant) %></br>
-			<%= image_tag restaurant.picture %> </br>
+			<%= image_tag restaurant.picture %> 
+			<h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
 				Location: <%= restaurant.location %> </br>
-				Phone Number: <%= restaurant.phone_number %> </br>
+				
 				Hours: <%= restaurant.open_time %> - 
 					<% if restaurant.close_time >= 12 %>
 						<%= (restaurant.close_time - 12) %>
@@ -24,8 +16,7 @@
 						<%= restaurant.close_time %> 
 					<% end %>
 				 </br>
-				Description: <%= restaurant.description %> </br>
-				Menu: <%= restaurant.menu %> </br>
+				<!-- Description: <%= restaurant.description %> </br> -->
 				Price Range: $<%= restaurant.price_range %> </br>
 				<% if is_owner? %>
 					Capacity: <%= restaurant.capacity %> </br>
@@ -34,3 +25,4 @@
 		</li>
 	<% end %>
 </ul>
+</section>
