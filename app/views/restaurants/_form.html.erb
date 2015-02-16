@@ -27,11 +27,12 @@
 	</div>
 	<div class="field">
 		<%= f.label :open_time %></br>
-		<%= f.text_field :open_time %></br></br>
+		
+		<%= f.select(:open_time, restaurant_time_select) %></br></br>
 	</div>
 	<div class="field">
 		<%= f.label :close_time %></br>
-		<%= f.text_field :close_time %></br></br>
+		<%= f.select(:close_time, restaurant_time_select) %></br></br>
 	</div>
 	<div class="field">
 		<%= f.label :description %></br>
@@ -54,6 +55,6 @@
 		<%= f.text_field :picture %></br></br>
 	</div>
 	<div class="actions">
-		<%= f.submit "Save Product" %>
+		<%= f.submit "Save Restaurant" %>
 	</div>
 <% end %>
