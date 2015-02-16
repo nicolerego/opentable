@@ -4,6 +4,10 @@
 	<%= link_to "Add a New Restaurant",  new_restaurant_url %>
 <% end %>
 
+<div id="search">
+    <%= render :partial => 'categories/search' %>
+ </div>
+
 <h3>All Restaurants</h3>
 <ul>
 	<% @restaurants.each do |restaurant| %>

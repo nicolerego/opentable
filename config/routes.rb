@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show ]
   resources :sessions, only: [:new, :create, :destroy]
 
-
-
+  post 'category/search' => 'category#search' 
+  #post 'categories/search/' => 'restaurant#index', :as => 'results'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

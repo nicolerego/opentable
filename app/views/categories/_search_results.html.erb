@@ -1,0 +1,6 @@
+<ul>
+    <% @categories.each do |category| %>
+  <li><%= link_to category.cuisine, 
+    :action => 'show', :id => category.id  %></li>
+  <% end %>
+  </ul>
