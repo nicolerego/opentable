@@ -1,8 +1,8 @@
 <p>
 	<h1>Reservation for: <%= @restaurant.name %> </h1>
-	Time:  <%= @reservation.time.strftime("%I:%M %p") %></br>
-	Date:  <%= @reservation.date.strftime("%A, %b %d") %></br>
-	Party Size: <%= @reservation.party_size %></br>
+	Time:  <%= @reservation.time.strftime("%I:%M %p") %></br><br>
+	Date:  <%= @reservation.date.strftime("%A, %b %d") %></br></br>
+	Party Size: <%= @reservation.party_size %></br></br>
 	
 	<%= link_to "Edit", edit_restaurant_reservation_path(@restaurant, @reservation) %> | <%= link_to "Delete", restaurant_reservation_path(@restaurant, @reservation), method: :delete, data: {confirm: "Are you sure you want to delete this reservation?"}  %>
 

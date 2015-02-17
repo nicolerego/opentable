@@ -8,12 +8,8 @@
 			<% if reservation.user_id == current_user.id %>
 				<li>
 					<%= image_tag("reservationLi.png", alt: "list item") %>
-					You have a reservation at <span><%= reservation.restaurant.name %></span> on <%= reservation.date.strftime("%A, %b %d") %> at <%= reservation.time.strftime("%I:%M %p") %>. Party size of <%= reservation.party_size %>.
-				</br></br>
-					
-					<%= link_to "View", "/restaurants/#{reservation.restaurant.id}/reservations/#{reservation.id}"%>
+					You have a reservation at <span><%= reservation.restaurant.name %></span> on <%= reservation.date.strftime("%A, %b %d") %> at <%= reservation.time.strftime("%I:%M %p") %>. Party size of <%= reservation.party_size %>. <%= link_to "VIEW", "/restaurants/#{reservation.restaurant.id}/reservations/#{reservation.id}"%>
 					</br></br>
-
 				</li>
 			<% end %>
 		<% end %>
