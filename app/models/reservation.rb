@@ -4,14 +4,15 @@ class Reservation < ActiveRecord::Base
 
 	validates :party_size, :time, presence: true
 
-	# validate :availability
+	validate :availability
 
 	scope :newest_first, -> { order(date: :ASC) }
 
-	# private
-	# def availability
-	# 	if !restaurant.available?(party_size, time)
-	# 		errors.add(:base, "Unfortunately, no reservations are available for this time.")
-	# 	end
-	# end
+	# Ro: need to refactor probably, cause the following check is done already in the restaurant model
+	private
+	def availability
+		if !restaurant.available?(restaurant.id, party_size, date, time)
+			errors.add(:base, "Unfortunately, no reservations are available for this time.")
+		end
+	end
 end
