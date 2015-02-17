@@ -1,26 +1,28 @@
 <%= render "/shared/header" %>
 </br>
-<%= link_to "Edit", edit_restaurant_path(@restaurant) %> | <%= link_to "Delete", @restaurant, method: :delete, data: {confirm: "Are you sure you want to delete this restaurant?"}  %>
-
-<h3><%= @restaurant.name %></h3>
-
-<p>
+<section class="editDelete">
+<%= link_to "EDIT", edit_restaurant_path(@restaurant) %>  <%= link_to "DELETE", @restaurant, method: :delete, data: {confirm: "Are you sure you want to delete this restaurant?"}  %>
+</section>
+<section class="restaurantShow">
+<ul>
 	<%= image_tag @restaurant.picture %> </br></br>
-	Location: <%= @restaurant.location %> </br>
-	Phone Number: <%= @restaurant.phone_number %> </br>
-	Hours: <%= @restaurant.open_time %> - 
+	<h3><b><%= @restaurant.name %></b></h3>
+	<li>Location: <%= @restaurant.location %> </li>
+	<li>Phone Number: <%= @restaurant.phone_number %> </li>
+	<li>Hours: <%= @restaurant.open_time %> - 
 		<% if @restaurant.close_time >= 12 %>
 			<%= (@restaurant.close_time - 12) %>
 		<% else %>
 			<%= @restaurant.close_time %> 
 		<% end %>
 	</br>
-	Description: <%= @restaurant.description %> </br>
-	Menu: <%= @restaurant.menu %> </br>
-	Price Range: $<%= @restaurant.price_range %> </br>
+	<li>Description: <%= @restaurant.description %> </li>
+	<li>Menu: <%= @restaurant.menu %> </li>
+	<li>Price Range: $<%= @restaurant.price_range %> </li>
 	<% if is_owner? %>
-	Capacity: <%= @restaurant.capacity %> </br>
+	<li>Capacity: <%= @restaurant.capacity %> </li>
 	<% end %>
-</p>
+</ul>
 
-<%= link_to "Make a Reservation", new_restaurant_reservation_path(@restaurant) %>
+<p class="makeReservation"><%= link_to "Make a Reservation", new_restaurant_reservation_path(@restaurant) %></p>
+</section>
