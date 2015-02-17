@@ -1,0 +1,11 @@
+<header>
+	<h1><%= link_to image_tag("logo.png", alt: "Logo"), restaurants_url %></h1>
+
+	<%= link_to "HOME", restaurants_url %> |
+	<% if is_owner? %>
+		<%= link_to "ADD A NEW RESTAURANT",  new_restaurant_url %> | 
+	<% end %>
+	<% if current_user %>
+		<%= link_to "SEE YOUR CURRENT DINING RESERVATIONS",  reservations_url %>
+	<% end %>
+</header>

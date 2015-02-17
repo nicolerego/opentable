@@ -1,8 +1,10 @@
 class Category < ActiveRecord::Base
-	has_many :restaurants
+
+	belongs_to :restaurant
 
 	def self.search(search)
   		search_condition = "%" + search + "%"
-  		find(:all, :conditions => ['cuisine LIKE ?', search_condition, search_condition])
-	end	
+  		find(:all, :conditions => ['cuisine LIKE ?', search_condition])
+	end
+
 end

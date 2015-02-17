@@ -1,0 +1,35 @@
+
+<%= render "/shared/header" %>
+
+<div id="search">
+    <%= render :partial => 'categories/search' %>
+</div>
+
+ 
+<h1>These are the <%= cuisine_name(params[:category][:cuisine_id]) %> cuisine types! </h1>
+
+
+  <% @restaurants.each do |restaurant| %>
+	<h3><%= restaurant.name %></h3>
+<p>
+	<%= image_tag restaurant.picture %> </br></br>
+	Location: <%= restaurant.location %> </br>
+	Phone Number: <%= restaurant.phone_number %> </br>
+	Hours: <%= restaurant.open_time %> - 
+		<% if restaurant.close_time >= 12 %>
+			<%= (restaurant.close_time - 12) %>
+		<% else %>
+			<%= restaurant.close_time %> 
+		<% end %>
+	</br>
+	Description: <%= restaurant.description %> </br>
+	Cuisine: <%= cuisine_name(restaurant.cuisine_id) %> </br>
+
+	Menu: <%= restaurant.menu %> </br>
+	Price Range: $<%= restaurant.price_range %> </br>
+	<% if is_owner? %>
+	Capacity: <%= restaurant.capacity %> </br>
+	<% end %>
+</p>
+
+<% end %>

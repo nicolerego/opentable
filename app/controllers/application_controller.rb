@@ -21,10 +21,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  
-
   helper_method :is_owner?
   helper_method :current_user
   helper_method :ensure_logged_in
-  
 end

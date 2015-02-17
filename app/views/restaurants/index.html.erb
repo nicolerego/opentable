@@ -1,27 +1,29 @@
-<h1>Seat Yourself!</h1>
-
-<% if is_owner? %>
-	<%= link_to "Add a New Restaurant",  new_restaurant_url %>
-<% end %>
+<%= render "/shared/header" %>
 
 <div id="search">
     <%= render :partial => 'categories/search' %>
- </div>
+</div>
 
+<section class="index">
 <h3>All Restaurants</h3>
 <ul>
 	<% @restaurants.each do |restaurant| %>
 		<li>
-			<%= link_to restaurant.name, restaurant_path(restaurant) %></br>
-			<%= image_tag restaurant.picture %> </br>
-			<%= restaurant.location %> </br>
-			<%= restaurant.phone_number %> </br>
-			<%= restaurant.open_hours %> </br>
-			<%= restaurant.description %> </br>
-			<%= restaurant.menu %> </br>
-			<%= restaurant.price_range %> </br>
-			<%= restaurant.capacity %> </br>
-			
+			<%= image_tag restaurant.picture %> 
+			<h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
+				Location: <%= restaurant.location %> </br>
+				Hours: <%= restaurant.open_time %> - 
+					<% if restaurant.close_time >= 12 %>
+						<%= (restaurant.close_time - 12) %>
+					<% else %>
+						<%= restaurant.close_time %> 
+					<% end %>
+				 </br>
+				<!-- Description: <%= restaurant.description %> </br> -->
+				Price Range: $<%= restaurant.price_range %> </br>
+				<i>Cuisine Type: <%= cuisine_name(restaurant.cuisine_id) %></i>
+			</br>
 		</li>
 	<% end %>
 </ul>
+</section>

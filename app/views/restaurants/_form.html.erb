@@ -26,8 +26,12 @@
 		<%= f.text_field :phone_number %></br></br>
 	</div>
 	<div class="field">
-		<%= f.label :open_hours %></br>
-		<%= f.text_field :open_hours %></br></br>
+		<%= f.label :open_time %></br>
+		<%= f.select(:open_time, restaurant_time_select) %></br></br>
+	</div>
+	<div class="field">
+		<%= f.label :close_time %></br>
+		<%= f.select(:close_time, restaurant_time_select) %></br></br>
 	</div>
 	<div class="field">
 		<%= f.label :description %></br>
@@ -35,7 +39,11 @@
 	</div>
 	<div class="field">
 		<%= f.label :cuisine %></br>
-		<%= f.text_field :cuisine %></br></br>
+		<%= f.collection_select(:cuisine_id, Category.all, :id, :cuisine) %></br></br>
+	</div>
+	<div class="field">
+		<%= f.label :menu %></br>
+		<%= f.text_field :menu %></br></br>
 	</div>
 	<div class="field">
 		<%= f.label :price_range %></br>
@@ -50,6 +58,6 @@
 		<%= f.text_field :picture %></br></br>
 	</div>
 	<div class="actions">
-		<%= f.submit "Save Product" %>
+		<%= f.submit "Save Restaurant" %>
 	</div>
 <% end %>

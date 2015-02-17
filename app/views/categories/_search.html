@@ -1,0 +1,5 @@
+<%= form_tag :controller => 'categories', :action => 'search', :method => 'post' do %>
+
+<%= collection_select(:category, :cuisine_id, Category.all, :id, :cuisine) %>
+<%= submit_tag "Search", :name => nil %> 
+<% end %> 
